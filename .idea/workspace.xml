@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c59cf341-d5aa-49a5-8a16-daeeafd135c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.circleci/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ReminderBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ReminderBot.iml" afterDir="false" />
-    </list>
+    <list default="true" id="c59cf341-d5aa-49a5-8a16-daeeafd135c7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +35,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/ohad.sasson/Documents/myProjects/ReminderBot",
+    "last_opened_file_path": "/Users/ohad.sasson/Documents/myProjects/ReminderBot/.circleci",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -49,6 +46,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.circleci" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -92,7 +90,7 @@
       <workItem from="1675336883136" duration="380000" />
       <workItem from="1675337271727" duration="1112000" />
       <workItem from="1675338399035" duration="597000" />
-      <workItem from="1675339003204" duration="365000" />
+      <workItem from="1675339003204" duration="685000" />
     </task>
     <servers />
   </component>
