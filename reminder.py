@@ -1,7 +1,7 @@
 import calendar
 import datetime
 import holidays
-import pywhatkit
+# import pywhatkit
 import os
 from twilio.rest import Client
 from dotenv import load_dotenv
