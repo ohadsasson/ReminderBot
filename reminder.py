@@ -16,18 +16,19 @@ from email.message import EmailMessage
 
 load_dotenv()
 
-def sendEmail(sender_email_address, sender_email_password, recivers, message):
-  msg = EmailMessage()
-  msg['Subject'] = "Last day to use Cibus!"
-  msg['From'] = sender_email_address
-  msg['To'] = recivers
-  msg.set_content(message)
 
-  smtp = smtplib.SMTP("smtp-mail.outlook.com", port=587)
-  smtp.starttls()
-  smtp.login(sender_email_address, sender_email_password)
-  smtp.send_message(msg)
-  smtp.quit()
+def sendEmail(sender_email_address, sender_email_password, recivers, message):
+    msg = EmailMessage()
+    msg['Subject'] = "Last day to use Cibus!"
+    msg['From'] = sender_email_address
+    msg['To'] = recivers
+    msg.set_content(message)
+
+    smtp = smtplib.SMTP("smtp-mail.outlook.com", port=587)
+    smtp.starttls()
+    smtp.login(sender_email_address, sender_email_password)
+    smtp.send_message(msg)
+    smtp.quit()
 
 
 def getBalance():
@@ -103,11 +104,9 @@ def main():
             message = 'Last day to use Cibus!'
 
         sendEmail(os.getenv('EMAIL'), os.getenv('EMAIL_PASSWORD'), os.getenv('EMAIL_LIST'), message)
-        # twilio_SMS(message, os.getenv('PHONE_NO'))
+        twilio_SMS(message, os.getenv('PHONE_NO'))
         # twilio_SMS(f'Last day to use cibus!', os.getenv('MICHAEL_PHONE_NO'))
 
 
 if __name__ == '__main__':
     main()
-
-
