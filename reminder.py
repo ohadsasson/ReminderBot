@@ -11,8 +11,23 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
+import smtplib
+from email.message import EmailMessage
 
 load_dotenv()
+
+def sendEmail(sender_email_address, sender_email_password, recivers, message):
+  msg = EmailMessage()
+  msg['Subject'] = "Last day to use Cibus!"
+  msg['From'] = sender_email_address
+  msg['To'] = recivers
+  msg.set_content(message)
+
+  smtp = smtplib.SMTP("smtp-mail.outlook.com", port=587)
+  smtp.starttls()
+  smtp.login(sender_email_address, sender_email_password)
+  smtp.send_message(msg)
+  smtp.quit()
 
 
 def getBalance():
@@ -42,7 +57,7 @@ def twilio_SMS(message, phoneNumber):
 
     # To send SMS:
     message = client.messages.create(
-        from_='+15618163469',
+        messaging_service_sid='MG6afa264d128998ea6301b7231d48f653',
         body=message,
         to=phoneNumber
     )
@@ -80,10 +95,16 @@ def main():
     print(currentDate)
     lastBDinMonth = last_valid_day_of_month(currentDate.year, currentDate.month)
     print(f"last day in current month {currentDate.month}", lastBDinMonth)
-    lastBDinMonth = currentDate # for debug
+    lastBDinMonth = currentDate
     if lastBDinMonth == currentDate:
-        twilio_SMS(f'Last day to use cibus! \nYour current balance is ₪{getBalance()}', os.getenv('PHONE_NO'))
-        twilio_SMS(f'Last day to use cibus!', os.getenv('MICHAEL_PHONE_NO'))
+        try:
+            message = f'Last day to use cibus! \nYour current balance is ₪{getBalance()}'
+        except:
+            message = 'Last day to use Cibus!'
+
+        sendEmail(os.getenv('EMAIL'), os.getenv('EMAIL_PASSWORD'), os.getenv('EMAIL_LIST'), message)
+        # twilio_SMS(message, os.getenv('PHONE_NO'))
+        # twilio_SMS(f'Last day to use cibus!', os.getenv('MICHAEL_PHONE_NO'))
 
 
 if __name__ == '__main__':
