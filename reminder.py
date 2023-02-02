@@ -96,7 +96,6 @@ def main():
     print(currentDate)
     lastBDinMonth = last_valid_day_of_month(currentDate.year, currentDate.month)
     print(f"last day in current month {currentDate.month}", lastBDinMonth)
-    lastBDinMonth = currentDate
     if lastBDinMonth == currentDate:
         try:
             message = f'Last day to use cibus! \nYour current balance is ₪{getBalance()}'
