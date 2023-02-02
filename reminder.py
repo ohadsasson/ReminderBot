@@ -80,6 +80,7 @@ def main():
     print(currentDate)
     lastBDinMonth = last_valid_day_of_month(currentDate.year, currentDate.month)
     print(f"last day in current month {currentDate.month}", lastBDinMonth)
+    lastBDinMonth = currentDate # for debug
     if lastBDinMonth == currentDate:
         twilio_SMS(f'Last day to use cibus! \nYour current balance is ₪{getBalance()}', os.getenv('PHONE_NO'))
         twilio_SMS(f'Last day to use cibus!', os.getenv('MICHAEL_PHONE_NO'))
